@@ -1,36 +1,59 @@
 import React from 'react';
-import style from './Board.css';
+import style from './Style.css'
 import Tile from './Tile';
 
 class Board extends React.Component {
-
   constructor(props) {
     super(props);
   }
 
   render() {
-    const singleTile = this.props.board.split('').map((elem, index) => {
-      var processedElem = (elem === '.' ? '' : elem);
-      //console.log(processedElem, index);
-      return <Tile key={index} index={index} value={processedElem} onChange={(event) => this.handleChange(event, processedElem, index)} />
-
+    const tile = this.props.board.split('').map((number, index) => {
+      const value = (number === '.' ? '' : number);
+      return (
+        <Tile
+          key={index}
+          index={index}
+          value={value}
+          onChange={(event) => this.handleChange(event, value, index)}
+          readOnly={number === this.props.initialBoard.split('')[index] && number != '.' ? true : false}
+          className={number === this.props.initialBoard.split('')[index] && number != '.' ? style.tileinit : style.tile}
+        />
+      )
     })
     return (
-      <div className={style.BoardCSS}>
-        <h1>Board H1</h1>
-        <p>Board p</p>
-        <form>{singleTile}</form>
-        <input type={'button'} value={'TEST'} name={'press'} onClick={this.test} />
+      <div className={`${style.board} board`}>
+        <h1>Sudoku</h1>
+        <form>{tile}</form>
       </div>
     )
   }
-  test = () => {
-    console.log(this.props);
-  }
 
-  handleChange = (event, processedElem, index) => {
-    this.setState({index: index, value: event.target.value});
-    console.log(`${this.state.index} ${this.state.value}`);
+  /*
+  handleChange = (event, value, index) => {
+    const tileUpdate = this.props.board.split('').map((num, idx) => {
+      if(index === idx && value > 0 && value <= 9) {
+        value = event.target.value;
+        return value
+      }
+
+      if(index === idx) {
+        return event.target.value;
+      }
+      return num
+    }).join('');
+    this.props.boardUpdate(tileUpdate);
+  }
+*/
+
+  handleChange = (event, value, index) => {
+    const tileUpdate = this.props.board.split('').map((num, idx) => {
+      if(index === idx) {
+        return event.target.value;
+      }
+      return num
+    }).join('');
+    this.props.boardUpdate(tileUpdate);
   }
 }
 
