@@ -1,7 +1,17 @@
 import React from 'react';
 
-const Tile = props => (
-    <input type='number' name='sudokuInput' className={props.className} min='1' max='9' step='1' maxLength='1' value={props.value} key={props.key} index={props.index} onChange={props.onChange} readOnly={props.readOnly}/>
-)
+const Tile = props => {
+  return (
+    <input
+      type='number'
+      min='1'
+      max='9'
+      className={props.className}
+      value={props.value}
+      onChange={(event) => props.handleChange(event.target.value, props.index)}
+      disabled={props.disabled}
+    />
+  );
+};
 
 export default Tile;

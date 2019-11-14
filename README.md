@@ -1,1 +1,3 @@
-Webpack exercise: added webpack-dev-server and react-hot-loader to wbpack config
+# Sudoku
+
+## [DEMO](https://dreamy-yalow-306e6b.netlify.com)
