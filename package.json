@@ -4,9 +4,9 @@
   "description": "Webpack with React",
   "main": "index.js",
   "scripts": {
+    "heroku-prebuild": "npm install --dev",
     "start": "webpack-dev-server --hot --env development",
-    "build": "webpack --env production",
-    "heroku-prebuild": "npm install --dev"
+    "build": "webpack --env production"
   },
   "repository": {
     "type": "git",
