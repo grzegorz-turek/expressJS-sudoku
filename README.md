@@ -1,11 +1,17 @@
 # Sudoku game
 
-## Running project locally:
+## 1. To run project remotely (GitHub Pages): [ click here](https://grzegorz-turek.github.io/expressJS-sudoku/)
 
-1. Clone repository  
+## 2. To run project locally:
+- clone repository
+- install dependencies: ```npm install``` in root folder
+- run Development: ```npm start``` in root folder
 
-2. Install dependencies: ```npm install``` in root folder
+## 3. Main technologies used in this app:
+- HTML, CSS
+- Webpack
+- uuid and sudoku-umd libraries
 
-3. Run Development: ```npm start``` in root folder
-
-## Still under development, updates coming soon, stay tuned!
+## 4. Still under development, planned updates include:
+- dificulty level selection
+- game status save to local drive / load form local drive
